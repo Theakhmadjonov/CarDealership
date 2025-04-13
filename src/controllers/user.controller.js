@@ -17,5 +17,17 @@ class UserController {
       next(error);
     }
   }
+
+  async getAllUsersController(req, res, next) {
+    try {
+      const data = await this.userService.getAllUsers();
+      res.status(200).json({
+        message: "Success",
+        data: data,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 export default UserController;

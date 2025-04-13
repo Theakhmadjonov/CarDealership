@@ -12,8 +12,7 @@ const RoleMiddleware = (...roles) => {
     } catch (error) {
       throw new CustomError(error.message, 401);
     }
-  }
-}
-
+  };
+};
 
 export default RoleMiddleware;

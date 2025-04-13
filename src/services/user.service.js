@@ -14,5 +14,14 @@ class UserService {
       throw new CustomError(error.message, 500);
     }
   }
+
+  async getAllUsers() {
+    try {
+      const users = await this.userModel.find(); 
+      return users;
+    } catch (error) {
+      throw new CustomError(error.message, 500);
+    }
+  }
 }
 export default UserService;
