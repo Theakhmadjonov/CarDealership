@@ -29,5 +29,13 @@ class UserController {
       next(error);
     }
   }
+
+  async getOneUserController(req, res, next) {
+    try {
+      
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 export default UserController;

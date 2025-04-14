@@ -8,6 +8,8 @@ const controller = new UserController();
 
 userRouter.post("/user", controller.createUserController.bind(controller));
 
-userRouter.get("user", controller.getAllUsersController.bind(controller));
+userRouter.get("/user", controller.getAllUsersController.bind(controller));
+
+userRouter.get("/user:id", controller.getOneUserController.bind(controller));
 
 export default userRouter;
