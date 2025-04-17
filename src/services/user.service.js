@@ -30,8 +30,16 @@ class UserService {
 
   async getOneUser(id) {
     try {
-      const findUser = await this.userModel.findById(data.id);
+      const findUser = await this.userModel.findById(id);
       return findUser;
+    } catch (error) {
+      throw new CustomError(error.message, 500);
+    }
+  }
+
+  async updateUser(id, data) {
+    try {
+      const findUser = await this.userModel.findById(id);
     } catch (error) {
       throw new CustomError(error.message, 500);
     }
