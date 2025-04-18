@@ -40,6 +40,20 @@ class UserService {
   async updateUser(id, data) {
     try {
       const findUser = await this.userModel.findById(id);
+      if (!findUser) throw new CustomError("User not found", 404);
+      const updatedUser = await this.userModel.findByIdAndUpdate(id, data, { new: true });
+      return updatedUser;
+    } catch (error) {
+      throw new CustomError(error.message, 500);
+    }
+  }
+
+  async deleteUser(id) {
+    try {
+      const findUser = await this.userModel.findById(id);
+      if (!findUser) throw new CustomError("User not found", 404);
+      const deletedUser = await this.userModel.findByIdAndDelete(id);
+      return deletedUser;
     } catch (error) {
       throw new CustomError(error.message, 500);
     }
